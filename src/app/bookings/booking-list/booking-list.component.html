@@ -1,19 +1,22 @@
 <!-- <mat-card> -->
   <div class="lable-box">
   <div class="header">
-    <mat-form-field >
-      <input matInput class="search-input" (keyup)="search($event)" [(ngModel)]="searchText"  placeholder="Type to Search" />
-      <mat-icon (click)="clearSearch()" class="close-btn" aria-hidden="false" aria-label="Example home icon"  fontIcon="close"></mat-icon>
+    <div class="search-box">
 
-    </mat-form-field>
-    <button
+      <mat-form-field >
+        <input matInput class="search-input" (keyup)="search($event)" [(ngModel)]="searchText"  placeholder="Type to Search" />
+        <mat-icon (click)="clearSearch()" class="close-btn" aria-hidden="false" aria-label="Example home icon"  fontIcon="close"></mat-icon>
+
+      </mat-form-field>
+      <button
       mat-raised-button
       color="success"
       (click)="addTask()"
       class="add-btn"
     >
-      + Add Booking
-    </button>
+    + Add Booking
+  </button>
+</div>
 
   </div>
   <mat-spinner *ngIf="isLoading"></mat-spinner>

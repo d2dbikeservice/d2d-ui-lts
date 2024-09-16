@@ -9,6 +9,7 @@ mat-card{
   /* background-color: rgb(252, 244, 95); */
   background-color: #46344E;
 }
+
 mat-spinner{
   margin: auto;
  }
@@ -26,4 +27,10 @@ mat-spinner{
 }
 .signup-link{
   color: rgb(84, 84, 227);
+}
+
+@media screen and (max-width:480px) {
+  mat-card{
+    width: 95%;
+  }
 }

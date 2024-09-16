@@ -26,4 +26,13 @@
   color: yellow;
 }
 
+@media screen and (max-width:480px) {
+  mat-card{
+    width: 95%;
+  }
+  .logout-btn{
+    transform: scale(.8);
+  }
+}
+
 

@@ -198,4 +198,8 @@ mat-paginator{
 }
 
 
-
+@media screen and (max-width:480px) {
+  .add-btn{
+    transform: scale(.8);
+  }
+}

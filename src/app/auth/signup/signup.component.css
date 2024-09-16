@@ -28,3 +28,9 @@ mat-spinner{
 .login-link{
   color: rgb(84, 84, 227);
 }
+
+@media screen and (max-width:480px) {
+  mat-card{
+    width: 95%;
+  }
+}
