@@ -46,7 +46,7 @@ export class EditBookingComponent {
     public titleCasePipe: TitleCasePipe,
     public builder:FormBuilder,
     private dateAdapter: DateAdapter<Date> ){
-      this.dateAdapter.setLocale('en-GB')
+      // this.dateAdapter.setLocale('en-GB')
 
   }
 
@@ -61,8 +61,8 @@ export class EditBookingComponent {
     isBillPaid: bookingData?.isBillPaid,
     totalBillAmount: bookingData?.totalBillAmount,
     totalPaidAmount: bookingData?.totalPaidAmount,
-    serviceEnquiryDate:bookingData?.serviceEnquiryDate,
-    serviceScheduledDate:bookingData?.serviceScheduledDate,
+    serviceEnquiryDate:bookingData?.serviceEnquiryDate.split('T')[0],
+    serviceScheduledDate:bookingData?.serviceScheduledDate.split('T')[0],
     serviceCompletedDate:bookingData?.serviceCompletedDate,
     comment:bookingData?.comment,
     assignedMechanic:bookingData?.assignedMechanic
@@ -82,7 +82,7 @@ export class EditBookingComponent {
         contact:this.taskForm.controls.contact.value,
         serviceEnquiryDate:this.taskForm.controls.serviceEnquiryDate.value,
         serviceScheduledDate:this.taskForm.controls.serviceScheduledDate.value,
-        serviceCompletedDate:this.taskForm.controls.serviceCompletedDate.value || null,
+        serviceCompletedDate:this.taskForm.controls.serviceCompletedDate.value,
         status:this.taskForm.controls.status.value,
         totalBillAmount:this.taskForm.controls.totalBillAmount.value,
         totalPaidAmount:this.taskForm.controls.totalPaidAmount.value,

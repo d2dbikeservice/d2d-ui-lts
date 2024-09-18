@@ -128,21 +128,33 @@
         <mat-datepicker #picker></mat-datepicker>
       </mat-form-field>
 
-      <mat-form-field class="task-field">
+      <!-- <mat-form-field class="task-field">
         <mat-label>Scheduled Date</mat-label>
         <input matInput [matDatepicker]="scheduledDate" name="serviceScheduledDate" formControlName="serviceScheduledDate" />
         <mat-hint>DD/MM/YYY</mat-hint>
         <mat-datepicker-toggle matIconSuffix [for]="scheduledDate"></mat-datepicker-toggle>
         <mat-datepicker #scheduledDate></mat-datepicker>
-      </mat-form-field>
+      </mat-form-field> -->
 
-      <mat-form-field class="task-field">
+      <!-- <mat-form-field class="task-field">
         <mat-label>Completed Date</mat-label>
         <input matInput [matDatepicker]="completedDate" name="serviceCompletedDate" formControlName="serviceCompletedDate" />
         <mat-hint>DD/MM/YYY</mat-hint>
         <mat-datepicker-toggle matIconSuffix [for]="completedDate"></mat-datepicker-toggle>
         <mat-datepicker #completedDate></mat-datepicker>
-      </mat-form-field>
+      </mat-form-field> -->
+
+      <div class="date-wrappar">
+        <mat-label class="selectdate-text">Select Service Date*</mat-label>
+        <input matInput class="booking-date" type="date" id="serviceScheduledDate" name="serviceScheduledDate"
+        formControlName="serviceScheduledDate">
+      </div>
+
+      <div class="date-wrappar">
+        <mat-label class="selectdate-text">Select Completed Date*</mat-label>
+        <input matInput class="booking-date" type="date" id="serviceCompletedDate" name="serviceCompletedDate"
+        formControlName="serviceCompletedDate">
+      </div>
 
       <mat-form-field class="task-field">
         <mat-label>Comment</mat-label>

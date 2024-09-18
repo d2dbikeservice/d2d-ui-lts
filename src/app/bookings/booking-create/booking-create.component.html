@@ -58,13 +58,18 @@
       <mat-error *ngIf="taskForm.get('contact')?.touched && taskForm.get('contact')?.hasError('required')"> Contact is Required!</mat-error>
       <mat-error *ngIf="taskForm.get('contact')?.touched && taskForm.get('contact')?.hasError('pattern')"> Contact must be 10 digits.</mat-error>
     </mat-form-field>
-    <mat-form-field class="task-field">
+    <!-- <mat-form-field class="task-field">
       <mat-label>Booking Date</mat-label>
       <input matInput [matDatepicker]="picker" name="serviceScheduledDate" formControlName="serviceScheduledDate" />
       <mat-hint>DD/MM/YYY</mat-hint>
       <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
       <mat-datepicker #picker></mat-datepicker>
-    </mat-form-field>
+    </mat-form-field> -->
+
+    <div class="date-wrappar">
+      <mat-label class="selectdate-text">Select Booking Date*</mat-label>
+      <input class="booking-date" type="date" id="serviceScheduledDate" name="serviceScheduledDate" formControlName="serviceScheduledDate">
+    </div>
     <button mat-raised-button class="submit-btn">
       {{ data.type == "Add" ? "Book Service" : "Update Service" }}
     </button>

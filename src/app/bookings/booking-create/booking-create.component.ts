@@ -17,9 +17,6 @@ export class BookingCreateComponent{
     vehicleModel: new FormControl('',Validators.required),
     address: new FormControl('',Validators.required),
     contact: new FormControl( '',[Validators.required, Validators.pattern('^[0-9]{10,10}$')]),
-
-
-
     serviceScheduledDate: new FormControl('',Validators.required),
   });
 
@@ -27,7 +24,7 @@ export class BookingCreateComponent{
     @Inject(MAT_DIALOG_DATA) public data:any,
     public builder:FormBuilder,
     private dateAdapter: DateAdapter<Date>, private authService:AuthService ){
-        this.dateAdapter.setLocale('en-GB')
+        // this.dateAdapter.setLocale('en-GB')
   }
 
   ngOnInit(): void {

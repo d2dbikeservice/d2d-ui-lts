@@ -19,6 +19,8 @@ import {ToastrModule} from 'ngx-toastr'
 import { ErrorInterceptor } from './error-interceptor';
 // import { GenerateBillComponent } from './bookings/generate-bill/generate-bill.component';
 import { AngularMaterialModule } from './angular-material.module';
+import { MAT_MOMENT_DATE_ADAPTER_OPTIONS } from '@angular/material-moment-adapter';
+
 
 
 @NgModule({
@@ -46,6 +48,7 @@ import { AngularMaterialModule } from './angular-material.module';
   providers: [
     {provide:HTTP_INTERCEPTORS,useClass:AuthInterceptor, multi:true},
     {provide:HTTP_INTERCEPTORS,useClass:ErrorInterceptor, multi:true},
+    { provide: MAT_MOMENT_DATE_ADAPTER_OPTIONS, useValue: { useUtc: true } },
     provideAnimationsAsync(),
 
   ],
