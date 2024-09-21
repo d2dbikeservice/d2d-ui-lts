@@ -99,7 +99,7 @@ export class EditBookingComponent {
     }
 
     this.bookingService.updateBooking(this.data.data._id, bookingData).subscribe(res => {
-      this.dialogRef.close();
+      this.dialogRef.close('edited success');
     })
   }
 

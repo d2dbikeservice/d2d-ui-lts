@@ -1,6 +1,6 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { BookingsService } from './../bookings.service';
-import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-delete-booking',
@@ -11,6 +11,7 @@ export class DeleteBookingComponent implements OnInit {
   rowData:any
   constructor(private bookingService:BookingsService,
     @Inject(MAT_DIALOG_DATA) public data:any,
+    private deleteDialog:MatDialogRef<DeleteBookingComponent>
   ){
 
   }
@@ -24,9 +25,14 @@ export class DeleteBookingComponent implements OnInit {
     // this.isLoading = true;
     this.bookingService.deleteBooking(this.rowData._id).subscribe(res => {
       // this.getBookings()
+      this.deleteDialog.close("deleted success");
     }, () => {
       // this.isLoading = false
     })
+  }
+
+  closeDelete(){
+    this.deleteDialog.close("deleted closed");
   }
 
 }

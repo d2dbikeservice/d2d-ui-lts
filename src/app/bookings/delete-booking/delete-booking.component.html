@@ -11,7 +11,7 @@
         booking?</p>
   </div>
   <div>
-    <button mat-raised-button mat-dialog-close class="close-btn">Cancel</button>
+    <button mat-raised-button (click)="closeDelete()" class="close-btn">Cancel</button>
     <button mat-raised-button (click)="onDelete()" class="delete-btn">Delete Booking</button>
   </div>
 </div>

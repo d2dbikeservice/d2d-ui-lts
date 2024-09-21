@@ -155,7 +155,9 @@ setBookingData(){
 
     editDialog.afterClosed().subscribe(item =>{
       // this.getBookings()
-      this.setBookingData()
+      if(item=='edited success'){
+        this.setBookingData()
+      }
     })
   }
   openDeleteTask(rowData:any){
@@ -167,7 +169,9 @@ setBookingData(){
     });
 
     deleteDialog.afterClosed().subscribe(item =>{
-      this.setBookingData()
+      if(item=='deleted success'){
+        this.setBookingData()
+      }
     })
   }
 
