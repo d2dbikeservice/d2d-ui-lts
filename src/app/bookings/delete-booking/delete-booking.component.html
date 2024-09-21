@@ -1,0 +1,17 @@
+<div class="delete-box">
+  <div>
+    <p>Are you sure, you want to Delete
+      <span class="customer-details">
+      {{rowData.customerName | titlecase}}
+    </span>
+     with
+     <span class="customer-details">
+       {{rowData.vehicleModel | titlecase}}
+     </span>
+        booking?</p>
+  </div>
+  <div>
+    <button mat-raised-button mat-dialog-close class="close-btn">Cancel</button>
+    <button mat-raised-button (click)="onDelete()" class="delete-btn">Delete Booking</button>
+  </div>
+</div>

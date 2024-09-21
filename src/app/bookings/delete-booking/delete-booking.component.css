@@ -1,0 +1,14 @@
+.delete-box{
+  padding: 30px;
+}
+
+.customer-details{
+  color: brown;
+  font-weight: 600;
+}
+
+.delete-btn{
+  background-color: rgb(220, 111, 111);
+  color: white;
+  margin-left: 15px;
+}

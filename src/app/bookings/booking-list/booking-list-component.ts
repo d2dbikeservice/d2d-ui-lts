@@ -10,6 +10,7 @@ import { ViewBookingComponent } from "../view-booking/view-booking.component";
 import { Subject, Subscription } from "rxjs";
 import { AuthService } from "../../auth/auth.service";
 import { DatePipe } from "@angular/common";
+import { DeleteBookingComponent } from "../delete-booking/delete-booking.component";
 
 // const ELEMENT_DATA: any = [
 //   {SNo: 1, customerName: 'Mr Nitish Singh', vehicleModel: 'Honda Activa',address: 'Ranoplai',contact: '7905588677',serviceScheuleDate: '27/05/2024'},
@@ -157,15 +158,27 @@ setBookingData(){
       this.setBookingData()
     })
   }
+  openDeleteTask(rowData:any){
+    let deleteDialog = this.dialog.open(DeleteBookingComponent, {
+      panelClass: ['md:w-3/5', 'w-full'],
+      maxHeight: '85vh',
+      data: {type:"delete",
+        data:rowData},
+    });
 
-  deleteTask(rowData:any){
-    this.isLoading = true;
-    this.bookingService.deleteBooking(rowData._id).subscribe(res => {
-      this.getBookings()
-    }, () => {
-      this.isLoading = false
+    deleteDialog.afterClosed().subscribe(item =>{
+      this.setBookingData()
     })
   }
+
+  // deleteTask(rowData:any){
+  //   this.isLoading = true;
+  //   this.bookingService.deleteBooking(rowData._id).subscribe(res => {
+  //     this.getBookings()
+  //   }, () => {
+  //     this.isLoading = false
+  //   })
+  // }
 
   markAsOld(data:any){
     let viewDialog = this.dialog.open(ViewBookingComponent,{

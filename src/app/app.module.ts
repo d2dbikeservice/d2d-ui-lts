@@ -19,6 +19,7 @@ import {ToastrModule} from 'ngx-toastr'
 import { ErrorInterceptor } from './error-interceptor';
 // import { GenerateBillComponent } from './bookings/generate-bill/generate-bill.component';
 import { AngularMaterialModule } from './angular-material.module';
+import { DeleteBookingComponent } from './bookings/delete-booking/delete-booking.component';
 
 
 
@@ -33,6 +34,7 @@ import { AngularMaterialModule } from './angular-material.module';
     SignupComponent,
     EditBookingComponent,
     ViewBookingComponent,
+    DeleteBookingComponent
   ],
   imports: [
     BrowserModule,

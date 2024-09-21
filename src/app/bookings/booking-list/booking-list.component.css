@@ -207,4 +207,19 @@ mat-paginator{
   .add-btn{
     transform: scale(.8);
   }
+  .search-input{
+    transform: scale(.8);
+  }
+
+  mat-form-field{
+    width: 250px;
+    /* margin-left: 10px; */
+  }
+.add-btn{
+  margin: 10px;
+  margin-top: 0;
+  margin-left: 0;
+  /* margin-bottom: 20px; */
+
+}
 }
