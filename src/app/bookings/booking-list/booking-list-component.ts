@@ -219,6 +219,9 @@ setBookingData(){
     else if(status == 'Cancelled'){
       return 'Cancelled'
     }
+    else if(status == 'In Progress'){
+      return 'InProgress'
+    }
     else if(status == 'Slot Booked'){
       return 'SlotBooked'
     }

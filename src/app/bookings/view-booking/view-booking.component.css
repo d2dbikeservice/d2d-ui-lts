@@ -1,14 +1,17 @@
 .view-box{
-  background-color: rgb(222, 181, 119);
+  background-color: rgb(248, 251, 252);
   padding: 30px 10px;
-  color: white;
+  /* color: white; */
 }
 .row-title{
+  color: rgb(42, 42, 28);
+}
+.row-value{
   color: black;
 }
 
 .view-row td{
-  border: 1px solid white;
+  border-bottom: 1px dotted;
   padding: 5px;
 }
 .close-btn{
@@ -20,3 +23,18 @@
   margin-bottom: 5px;
   cursor: pointer;
 }
+.customer-name{
+  color: rgb(151, 50, 50);
+  font-weight: 600;
+}
+
+@media screen and (max-width:480px) {
+
+  .row-title{
+    font-size: 14px;
+  }
+  .row-value{
+    font-size: 14px;
+  }
+}
+

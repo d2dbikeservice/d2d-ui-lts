@@ -152,6 +152,11 @@ mat-paginator{
   color: white;
   border: 1px solid black;
 }
+.InProgress{
+  background-color: rgb(218, 201, 53);
+  color: white;
+  border: 1px solid black;
+}
 .SlotBooked{
   background-color: rgb(179, 254, 142);
   color: black;

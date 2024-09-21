@@ -49,15 +49,15 @@ export class ViewBookingComponent implements OnInit{
           },
           {
             name:'Enquiry Date',
-            value:this.bookingData.serviceEnquiryDate
+            value:this.bookingData.serviceEnquiryDate.split('T')[0]
           },
           {
             name:'Schedule Date',
-            value:this.bookingData.serviceScheduledDate
+            value:this.bookingData.serviceScheduledDate.split('T')[0]
           },
           {
             name:'Completed Date',
-            value:this.bookingData.serviceCompletedDate
+            value:this.bookingData.serviceCompletedDate.split('T')[0]
           },
           {
             name:'Total Bill Amount',

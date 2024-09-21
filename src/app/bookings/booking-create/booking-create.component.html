@@ -47,13 +47,13 @@
     <mat-form-field class="task-field">
       <mat-label>Contact</mat-label>
       <input
-
         matInput
         placeholder="Enter Text"
         id="contact"
         formControlName="contact"
-        type="text"
+        type="number"
         name="contact"
+        onwheel="this.blur()"
       />
       <mat-error *ngIf="taskForm.get('contact')?.touched && taskForm.get('contact')?.hasError('required')"> Contact is Required!</mat-error>
       <mat-error *ngIf="taskForm.get('contact')?.touched && taskForm.get('contact')?.hasError('pattern')"> Contact must be 10 digits.</mat-error>

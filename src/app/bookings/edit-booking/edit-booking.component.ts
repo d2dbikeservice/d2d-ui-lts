@@ -36,9 +36,10 @@ export class EditBookingComponent {
     {value:"Complaint", label:"Complaint"},
     {value:"Pending From Customer", label:"Pending From Customer"},
     {value:"Pending From D2d", label:"Pending From D2d"},
+    {value:"In Progress", label:"In Progress"},
     {value:"Cancelled", label:"Cancelled"},
   ]
-  mechanicList:any=['Rinku', 'Vaibhav', 'Amaan']
+  mechanicList:any=['Vaibhav', 'Amaan']
 
   constructor(private bookingService:BookingsService,private dialogRef: MatDialogRef<EditBookingComponent>,
     @Inject(MAT_DIALOG_DATA) public data:any,
