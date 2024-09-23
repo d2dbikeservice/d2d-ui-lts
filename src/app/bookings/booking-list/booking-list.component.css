@@ -225,6 +225,9 @@ mat-paginator{
   .task-field-year{
     transform: scale(.7);
   }
+  .header{
+    flex-direction: column;
+  }
 }
 
 .task-field-year{
