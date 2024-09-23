@@ -16,6 +16,23 @@
     >
     + Add Booking
   </button>
+
+</div>
+<div>
+  <mat-form-field class="task-field-year" >
+    <mat-label>Selected Year</mat-label >
+    <mat-select id="status" [(ngModel)]="selectedYear" (selectionChange)="onYearChange()">
+      <mat-option *ngFor="let year of yearList"
+       [value]="year">{{year}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field class="task-field-year">
+    <mat-label>Selected Month</mat-label>
+    <mat-select id="status" [(ngModel)]="selectedMonth" (selectionChange)="onYearChange()">
+      <mat-option *ngFor="let month of monthList"
+       [value]="month.value">{{month.name}}</mat-option>
+    </mat-select>
+  </mat-form-field>
 </div>
 
   </div>

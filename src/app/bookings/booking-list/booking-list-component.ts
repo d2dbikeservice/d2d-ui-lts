@@ -39,6 +39,23 @@ export class BookingListComponent implements OnInit, OnDestroy{
   @Input() tabName!:string
   searchText:any=''
   @Input('clickSubject') clickSubject!:Subject<any>;
+  yearList:any=[2024, 2025]
+  monthList:any=[
+    {name:"Jan", value:1},
+    {name:"Feb", value:2},
+    {name:"March", value:3},
+    {name:"April", value:4},
+    {name:"May", value:5},
+    {name:"June", value:6},
+    {name:"July", value:7},
+    {name:"Aug", value:8},
+    {name:"Sept", value:9},
+    {name:"Oct", value:10},
+    {name:"Nov", value:11},
+    {name:"Dec", value:12},
+  ]
+  selectedYear:any
+  selectedMonth:any
 
   constructor(
     private bookingService:BookingsService,
@@ -48,6 +65,10 @@ export class BookingListComponent implements OnInit, OnDestroy{
   }
 
   ngOnInit(): void {
+    let todatDate = new Date();
+    this.selectedYear = todatDate.getFullYear()
+    this.selectedMonth = todatDate.getMonth() +1;
+
     this.clickSubject.subscribe(e => {
       this.setBookingData()
     });
@@ -57,15 +78,10 @@ export class BookingListComponent implements OnInit, OnDestroy{
       }
     )
     this.getBookings()
-    // if(this.tabName == "Bookings"){
-    //   this.getBookings()
-    // }else if(this.tabName == "Completed Service"){
-    //   this.getCompletedService()
+}
 
-    // }else if(this.tabName == "Todays Service"){
-    //   this.getTodaysBookings()
-    // }
-
+onYearChange(){
+  this.getBookings()
 }
 
 setBookingData(){
@@ -90,7 +106,7 @@ setBookingData(){
 
   getBookings(){
     this.isLoading = true;
-    this.bookingService.getBookings().subscribe(res => {
+    this.bookingService.getBookings(this.selectedYear, this.selectedMonth).subscribe(res => {
       let result:any = res;
       this.bookings = result.bookings
       this.dataSource = new MatTableDataSource<any>(this.bookings)
@@ -110,7 +126,7 @@ setBookingData(){
   }
   getCompletedService(){
     this.isLoading = true;
-    this.bookingService.getCompletedService().subscribe(res => {
+    this.bookingService.getCompletedService(this.selectedYear, this.selectedMonth).subscribe(res => {
       let result:any = res;
       this.bookings = result.bookings
       this.dataSource = new MatTableDataSource<any>(this.bookings)

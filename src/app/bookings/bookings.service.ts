@@ -1,11 +1,11 @@
 import { Injectable } from "@angular/core";
 import { Booking } from "./bookings.model";
 import { Subject } from "rxjs";
-import { HttpClient} from '@angular/common/http'
+import { HttpClient, HttpParams} from '@angular/common/http'
 import { environment } from './../../environments/environment';
 
 
-const BACKEND_URL = environment.apiUrl + "/bookings/"
+const BACKEND_URL = environment.apiUrl + "/bookings"
 
 @Injectable({providedIn:'root'})
 export class BookingsService{
@@ -14,26 +14,32 @@ export class BookingsService{
 
   }
 
-  getBookings(){
-    return this.http.get(BACKEND_URL)
+  getBookings(year:any, month:any){
+    const params = new HttpParams()
+    .set('year',year.toString())
+    .set('month',month.toString())
+    return this.http.get(BACKEND_URL, {params})
   }
 
   getTodaysService(){
-    return this.http.get(BACKEND_URL+'todaysService')
+    return this.http.get(BACKEND_URL+'/todaysService')
   }
-  getCompletedService(){
-    return this.http.get(BACKEND_URL+'completedService')
+  getCompletedService(year:any, month:any){
+    const params = new HttpParams()
+    .set('year',year.toString())
+    .set('month',month.toString())
+    return this.http.get(BACKEND_URL+'/completedService', {params})
   }
   addBooking(bookingData:any){
-    return this.http.post(BACKEND_URL, bookingData)
+    return this.http.post(BACKEND_URL,  bookingData)
   }
 
   deleteBooking(id:any){
-    return this.http.delete(BACKEND_URL+ id)
+    return this.http.delete(BACKEND_URL+  '/' + id)
   }
 
   updateBooking(id:any, bookingData:any){
-    return this.http.put(BACKEND_URL+ id, bookingData)
+    return this.http.put(BACKEND_URL+ '/' + id, bookingData)
   }
 
   // updateNewBooking(id:any, bookingData:any){

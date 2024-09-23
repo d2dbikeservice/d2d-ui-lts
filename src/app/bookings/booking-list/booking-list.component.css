@@ -215,11 +215,19 @@ mat-paginator{
     width: 250px;
     /* margin-left: 10px; */
   }
-.add-btn{
-  margin: 10px;
-  margin-top: 0;
-  margin-left: 0;
-  /* margin-bottom: 20px; */
+  .add-btn{
+    margin: 10px;
+    margin-top: 0;
+    margin-left: 0;
+    /* margin-bottom: 20px; */
 
+  }
+  .task-field-year{
+    transform: scale(.7);
+  }
 }
+
+.task-field-year{
+  width: 150px;
+  margin-right: 10px;
 }
