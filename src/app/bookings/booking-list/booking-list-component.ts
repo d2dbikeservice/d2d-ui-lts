@@ -84,6 +84,14 @@ export class BookingListComponent implements OnInit, OnDestroy{
 
 onYearChange(){
   this.getBookings()
+  if(this.tabName == "Bookings"){
+    this.getBookings()
+  }else if(this.tabName == "Completed Service"){
+    this.getCompletedService()
+
+  }else if(this.tabName == "Todays Service"){
+    this.getTodaysBookings()
+  }
 }
 
 setBookingData(){
@@ -128,6 +136,7 @@ setBookingData(){
   }
   getCompletedService(){
     this.isLoading = true;
+    this.totalBillCollected = 0;
     this.bookingService.getCompletedService(this.selectedYear, this.selectedMonth).subscribe(res => {
       let result:any = res;
       this.bookings = result.bookings
