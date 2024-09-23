@@ -203,6 +203,11 @@ mat-paginator{
 }
 
 
+@media screen and (min-width:480px) {
+  .bill-amount-box{
+    display: flex;
+  }
+}
 @media screen and (max-width:480px) {
   .add-btn{
     transform: scale(.8);
@@ -228,9 +233,27 @@ mat-paginator{
   .header{
     flex-direction: column;
   }
+  .first-box{
+    margin-bottom: 20px;
+  }
 }
 
 .task-field-year{
   width: 150px;
   margin-right: 10px;
+}
+
+.tota-service{
+  color: white;
+  font-weight: 600;
+  margin-left: 10px;
+  margin-right: 10px;
+  background: #8ea1e0;
+  padding: 10px;
+  border-radius: 23px;
+}
+.bill-amount-box{
+  background-color: #e8d476;
+  padding: 12px;
+  margin-bottom: 10px;
 }

@@ -9,6 +9,7 @@
 
       </mat-form-field>
       <button
+      *ngIf="tabName == 'Bookings'"
       mat-raised-button
       color="success"
       (click)="addTask()"
@@ -39,6 +40,16 @@
   <mat-spinner *ngIf="isLoading"></mat-spinner>
 
   <mat-card-content *ngIf="!isLoading">
+    <div *ngIf="tabName == 'Completed Service'" class="bill-amount-box">
+      <div class="first-box">
+
+        <span>Total Completed Service :</span> <span class="tota-service">{{totalCompletService}}</span>
+      </div>
+      <div>
+
+        <span>Total Bill Collected :</span> <span class="tota-service">Rs. {{totalBillCollected}}</span>
+      </div>
+    </div>
     <table mat-table [dataSource]="dataSource">
 
       <ng-container matColumnDef="S.No.">

@@ -56,6 +56,8 @@ export class BookingListComponent implements OnInit, OnDestroy{
   ]
   selectedYear:any
   selectedMonth:any
+  totalCompletService:number=0
+  totalBillCollected:number=0
 
   constructor(
     private bookingService:BookingsService,
@@ -129,6 +131,10 @@ setBookingData(){
     this.bookingService.getCompletedService(this.selectedYear, this.selectedMonth).subscribe(res => {
       let result:any = res;
       this.bookings = result.bookings
+      this.totalCompletService = this.bookings.length
+      this.bookings.map((item:any) => {
+        this.totalBillCollected += item.totalPaidAmount
+      })
       this.dataSource = new MatTableDataSource<any>(this.bookings)
       this.dataSource.paginator = this.paginator
       this.isLoading = false;
