@@ -16,6 +16,7 @@ export class EditBookingComponent {
   taskForm = new FormGroup({
     customerName: new FormControl('',Validators.required),
     vehicleModel: new FormControl('',Validators.required),
+    userEmail: new FormControl('',[Validators.required, Validators.email]),
     address: new FormControl('',Validators.required),
     contact: new FormControl(0,[Validators.required, Validators.pattern('^[0-9]{10,10}$')]),
     status: new FormControl('',Validators.required),
@@ -56,6 +57,7 @@ export class EditBookingComponent {
     this.taskForm.setValue({
     customerName: bookingData?.customerName,
     vehicleModel: bookingData?.vehicleModel,
+    userEmail: bookingData?.userEmail ? bookingData?.userEmail : '',
     address: bookingData?.address,
     contact:bookingData?.contact,
     status:this.titleCasePipe.transform(bookingData?.status),
@@ -78,6 +80,7 @@ export class EditBookingComponent {
       id:this.data.data._id,
         customerName:this.taskForm.controls.customerName.value,
         vehicleModel:this.taskForm.controls.vehicleModel.value,
+        userEmail:this.taskForm.controls?.userEmail ? this.taskForm.controls?.userEmail.value : '',
         address:this.taskForm.controls.address.value,
         city:"ayodhya",
         contact:this.taskForm.controls.contact.value,

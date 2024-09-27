@@ -16,6 +16,7 @@ export class BookingCreateComponent{
     customerName: new FormControl('',Validators.required),
     vehicleModel: new FormControl('',Validators.required),
     address: new FormControl('',Validators.required),
+    userEmail: new FormControl('',[Validators.required, Validators.email]),
     contact: new FormControl( '',[Validators.required, Validators.pattern('^[0-9]{10,10}$')]),
     serviceScheduledDate: new FormControl('',Validators.required),
   });
@@ -40,6 +41,7 @@ export class BookingCreateComponent{
         customerName:this.taskForm.controls.customerName.value,
           vehicleModel:this.taskForm.controls.vehicleModel.value,
           address:this.taskForm.controls.address.value,
+          userEmail:this.taskForm.controls.userEmail.value,
           city:"ayodhya",
           contact:this.taskForm.controls.contact.value,
           serviceEnquiryDate:new Date(),

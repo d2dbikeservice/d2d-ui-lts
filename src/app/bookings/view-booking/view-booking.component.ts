@@ -28,6 +28,10 @@ export class ViewBookingComponent implements OnInit{
             value:this.bookingData.vehicleModel
           },
           {
+            name:'Email',
+            value:this.bookingData.userEmail
+          },
+          {
             name:'Address',
             value:this.bookingData.address
           },
