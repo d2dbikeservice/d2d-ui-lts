@@ -80,6 +80,7 @@ export class ExpenseListComponent implements OnInit {
 
   getExpenses(){
     this.isLoading = true;
+    this.totalExpense = 0;
     this.expenseService.getExpenses(this.selectedYear, this.selectedMonth).subscribe(res => {
       let result:any = res;
       this.expensesList = result.expense
