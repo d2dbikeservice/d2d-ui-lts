@@ -20,6 +20,9 @@ import { ErrorInterceptor } from './error-interceptor';
 // import { GenerateBillComponent } from './bookings/generate-bill/generate-bill.component';
 import { AngularMaterialModule } from './angular-material.module';
 import { DeleteBookingComponent } from './bookings/delete-booking/delete-booking.component';
+import { ToolbarComponent } from './toolbar/toolbar.component';
+import { ExpenseListComponent } from './expenses/expense-list/expense-list.component';
+import { AddExpenseComponent } from './expenses/add-expense/add-expense.component';
 
 
 
@@ -34,7 +37,10 @@ import { DeleteBookingComponent } from './bookings/delete-booking/delete-booking
     SignupComponent,
     EditBookingComponent,
     ViewBookingComponent,
-    DeleteBookingComponent
+    DeleteBookingComponent,
+    ToolbarComponent,
+    ExpenseListComponent,
+    AddExpenseComponent
   ],
   imports: [
     BrowserModule,

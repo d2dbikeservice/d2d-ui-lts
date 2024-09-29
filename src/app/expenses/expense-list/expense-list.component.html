@@ -1,0 +1,131 @@
+<!-- <mat-card> -->
+<div class="lable-box">
+  <div class="header">
+    <div class="search-box">
+      <button
+        mat-raised-button
+        color="success"
+        (click)="addExpense()"
+        class="add-btn"
+      >
+        + Add Expense
+      </button>
+    </div>
+    <div>
+      <mat-form-field class="task-field-year">
+        <mat-label>Selected Year</mat-label>
+        <mat-select
+          id="status"
+          [(ngModel)]="selectedYear"
+          (selectionChange)="onYearChange()"
+        >
+          <mat-option *ngFor="let year of yearList" [value]="year">{{
+            year
+          }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field class="task-field-year">
+        <mat-label>Selected Month</mat-label>
+        <mat-select
+          id="status"
+          [(ngModel)]="selectedMonth"
+          (selectionChange)="onYearChange()"
+        >
+          <mat-option *ngFor="let month of monthList" [value]="month.value">{{
+            month.name
+          }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </div>
+  <mat-spinner *ngIf="isLoading"></mat-spinner>
+
+  <mat-card-content *ngIf="!isLoading">
+    <!-- <div  class="bill-amount-box">
+            <div class="first-box">
+      
+              <span>Total Completed Service :</span> <span class="tota-service">{{totalCompletService}}</span>
+            </div>
+            <div>
+      
+              <span>Total Bill Collected :</span> <span class="tota-service">Rs. {{totalBillCollected}}</span>
+            </div>
+          </div> -->
+    <table mat-table [dataSource]="dataSource">
+      <ng-container matColumnDef="S.No.">
+        <th mat-header-cell *matHeaderCellDef>S.No.</th>
+        <td mat-cell *matCellDef="let element; let ind = index">
+          <span *ngIf="element.isNewBooking" class="new-icon"></span>
+          <span *ngIf="!element.isNewBooking" class="new-icon1"></span>
+          {{ ind + 1 }}
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="description">
+        <th mat-header-cell *matHeaderCellDef>Description</th>
+        <td mat-cell *matCellDef="let element">
+          <!-- <span *ngIf="element.isNewBooking" class="new-icon"></span>
+                <span *ngIf="!element.isNewBooking" class="new-icon1"></span> -->
+          {{ element.description | titlecase }}
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="amount">
+        <th mat-header-cell *matHeaderCellDef>Amount</th>
+        <td mat-cell *matCellDef="let element">Rs {{ element.amount }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="date">
+        <th mat-header-cell *matHeaderCellDef>Added Date</th>
+        <td mat-cell *matCellDef="let element">
+          {{ element.date | date : "d MMM, y" }}
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="updatedBy">
+        <th mat-header-cell *matHeaderCellDef>Updated By</th>
+        <td mat-cell *matCellDef="let element">
+          <div class="status-color">
+            {{ element.updatedBy | titlecase }}
+          </div>
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef>Actions</th>
+        <td mat-cell *matCellDef="let element" class="action-container">
+          <!-- <mat-icon class="edit-btn" aria-hidden="false" aria-label="Example home icon" (click)="editTask(element); $event.stopPropagation();" fontIcon="edit"></mat-icon>
+                <mat-icon class="delete-btn" aria-hidden="false" aria-label="Example home icon" *ngIf="tabName == 'Bookings'" (click)="openDeleteTask(element); $event.stopPropagation();" fontIcon="delete"></mat-icon>
+                <a (click)="$event.stopPropagation()" target="_blank" [href]="'https://api.whatsapp.com/send?phone=91' + element.contact">
+                  <img src="../../../assets/images/whatsapp-icon.png" class="whatsapp-icon" />
+              </a> -->
+        </td>
+      </ng-container>
+      <tr class="mat-row" *matNoDataRow>
+        <td
+          class="mat-cell no-results"
+          [attr.colspan]="displayedColumns.length"
+        >
+          No Expense Added yet!!!
+        </td>
+      </tr>
+      <tr
+        mat-header-row
+        class="table-header"
+        *matHeaderRowDef="displayedColumns"
+      ></tr>
+
+      <tr
+        class="table-body-tr"
+        mat-row
+        *matRowDef="let row; columns: displayedColumns"
+      ></tr>
+    </table>
+  </mat-card-content>
+  <mat-card-footer>
+    <mat-paginator
+      [pageSizeOptions]="[10, 25, 50, 100]"
+      showFirstLastButtons
+    ></mat-paginator>
+  </mat-card-footer>
+</div>
+<!-- </mat-card> -->
