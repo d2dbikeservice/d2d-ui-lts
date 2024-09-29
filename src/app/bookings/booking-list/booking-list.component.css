@@ -207,6 +207,9 @@ mat-paginator{
   .bill-amount-box{
     display: flex;
   }
+  .dates-box{
+    display: flex;
+ }
 }
 @media screen and (max-width:480px) {
   .add-btn{

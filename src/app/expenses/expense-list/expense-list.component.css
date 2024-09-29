@@ -207,6 +207,9 @@ mat-spinner{
      .bill-amount-box{
        display: flex;
      }
+     .dates-box{
+        display: flex;
+     }
    }
    @media screen and (max-width:480px) {
      .add-btn{
@@ -236,6 +239,7 @@ mat-spinner{
      .first-box{
        margin-bottom: 20px;
      }
+     
    }
    
    .task-field-year{
