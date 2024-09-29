@@ -1,6 +1,9 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
+import { AddExpenseComponent } from '../add-expense/add-expense.component';
+import { ExpensesService } from '../expense.service';
 
 @Component({
   selector: 'app-expense-list',
@@ -8,20 +11,7 @@ import { MatTableDataSource } from '@angular/material/table';
   styleUrl: './expense-list.component.css'
 })
 export class ExpenseListComponent implements OnInit {
-  expensesList :any= [
-    {
-    description:"Saluja",
-    amount:400,
-    date:"25 July",
-    updatedBy:"Sachin"
-  },
-    {
-    description:"Navdurga",
-    amount:400,
-    date:"25 July",
-    updatedBy:"Nivesh"
-  },
-]
+  expensesList :any= []
   dataSource:any;
   displayedColumns:string[]=["S.No.","description", "amount","date","updatedBy"]
   @ViewChild(MatPaginator) paginator!:MatPaginator
@@ -43,8 +33,9 @@ export class ExpenseListComponent implements OnInit {
     {name:"Nov", value:11},
     {name:"Dec", value:12},
   ]
+  totalExpense:number=0;
 
-  constructor(){
+  constructor(private dialog:MatDialog, private expenseService:ExpensesService){
     let todatDate = new Date();
     this.selectedYear = todatDate.getFullYear()
     this.selectedMonth = todatDate.getMonth() +1;
@@ -57,18 +48,38 @@ export class ExpenseListComponent implements OnInit {
 
 
   addExpense(){
+    let addDialog = this.dialog.open(AddExpenseComponent, {
+      panelClass: ['md:w-3/5', 'w-full'],
+      maxHeight: '85vh',
+      data: {type:"Add",
+        data:null},
+    });
 
   }
 
   getExpenses(){
-    // let result:any = res;
-      // this.bookings = result.bookings
+
+    this.expenseService.getExpenses(this.selectedYear, this.selectedMonth).subscribe(res => {
+      let result:any = res;
+      this.expensesList = result.expense
+      this.expensesList.map((item:any) => {
+        this.totalExpense += item.amount
+      })
       this.dataSource = new MatTableDataSource<any>(this.expensesList)
       this.dataSource.paginator = this.paginator
       this.isLoading = false;
+      
+    })
+    // let result:any = res;
+      // this.bookings = result.bookings
+
+      // this.dataSource = new MatTableDataSource<any>(this.expensesList)
+      // this.dataSource.paginator = this.paginator
+      // this.isLoading = false;
   }
 
   onYearChange(){
+    this.getExpenses()
 
   }
 

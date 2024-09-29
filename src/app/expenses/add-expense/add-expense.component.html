@@ -1,1 +1,42 @@
-<p>add-expense works!</p>
+<mat-dialog-actions>
+  <h2 mat-dialog-title>Add Expense</h2>
+  <div>
+    <button mat-raised-button mat-dialog-close class="close-btn">Close</button>
+    <button mat-button cdkFocusInitial (click)="resetForm()">Clear</button>
+  </div>
+</mat-dialog-actions>
+<mat-dialog-content>
+  <form
+    [formGroup]="expenseForm"
+    (ngSubmit)="addExpense()"
+    class="task-form signup-form"
+  >
+    <mat-form-field class="task-field">
+      <mat-label>Description</mat-label>
+      <input
+        matInput
+        placeholder="Enter Text"
+        id="description"
+        formControlName="description"
+        type="text"
+        name="description"
+      />
+    </mat-form-field>
+    <mat-form-field class="task-field">
+      <mat-label>Amount</mat-label>
+      <input
+        matInput
+        placeholder="Enter Text"
+        id="amount"
+        formControlName="amount"
+        type="number"
+        name="amount"
+      />
+    </mat-form-field>
+
+    <button mat-raised-button class="submit-btn">
+      <!-- {{ data.type == "Add" ? "Book Service" : "Update Service" }} -->
+      Add Expense
+    </button>
+  </form>
+</mat-dialog-content>

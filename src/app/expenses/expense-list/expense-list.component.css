@@ -257,4 +257,17 @@ mat-spinner{
      padding: 12px;
      margin-bottom: 10px;
    }
-   
+   .bill-amount-box{
+    background-color: #e8d476;
+    padding: 12px;
+    margin-bottom: 10px;
+  }
+  .tota-service{
+    color: white;
+    font-weight: 600;
+    margin-left: 10px;
+    margin-right: 10px;
+    background: #8ea1e0;
+    padding: 10px;
+    border-radius: 23px;
+  }
