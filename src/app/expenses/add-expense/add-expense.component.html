@@ -1,5 +1,5 @@
 <mat-dialog-actions>
-  <h2 mat-dialog-title>Add Expense</h2>
+  <h2 mat-dialog-title>{{ rowData.type == "Add" ? "Add" : "Edit" }} Expense</h2>
   <div>
     <button mat-raised-button mat-dialog-close class="close-btn">Close</button>
     <button mat-button cdkFocusInitial (click)="resetForm()">Clear</button>
@@ -35,8 +35,7 @@
     </mat-form-field>
 
     <button mat-raised-button class="submit-btn">
-      <!-- {{ data.type == "Add" ? "Book Service" : "Update Service" }} -->
-      Add Expense
+      {{ data.type == "Add" ? "Add Expense" : "Update Expense" }}
     </button>
   </form>
 </mat-dialog-content>

@@ -25,12 +25,12 @@ export class ExpensesService{
     return this.http.post(BACKEND_URL,  expenseData)
   }
 
-//   deleteBooking(id:any){
-//     return this.http.delete(BACKEND_URL+  '/' + id)
-//   }
+  deleteExpense(id:any){
+    return this.http.delete(BACKEND_URL+  '/' + id)
+  }
 
-//   updateBooking(id:any, bookingData:any){
-//     return this.http.put(BACKEND_URL+ '/' + id, bookingData)
-//   }
+  updateExpense(id:any, bookingData:any){
+    return this.http.put(BACKEND_URL+ '/' + id, bookingData)
+  }
 
 }
