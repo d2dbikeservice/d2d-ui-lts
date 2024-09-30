@@ -46,6 +46,11 @@
         <span>Total Expense :</span>
         <span class="tota-service">Rs. {{ totalExpense }}</span>
       </div>
+      <div>
+        <button mat-raised-button (click)="openExpenseDialog()">
+          View Detailed Expense
+        </button>
+      </div>
     </div>
     <table mat-table [dataSource]="dataSource">
       <ng-container matColumnDef="S.No.">

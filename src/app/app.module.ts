@@ -23,6 +23,7 @@ import { DeleteBookingComponent } from './bookings/delete-booking/delete-booking
 import { ToolbarComponent } from './toolbar/toolbar.component';
 import { ExpenseListComponent } from './expenses/expense-list/expense-list.component';
 import { AddExpenseComponent } from './expenses/add-expense/add-expense.component';
+import { ExpenseDetailsComponent } from './expenses/expense-details/expense-details.component';
 
 
 
@@ -40,7 +41,8 @@ import { AddExpenseComponent } from './expenses/add-expense/add-expense.componen
     DeleteBookingComponent,
     ToolbarComponent,
     ExpenseListComponent,
-    AddExpenseComponent
+    AddExpenseComponent,
+    ExpenseDetailsComponent
   ],
   imports: [
     BrowserModule,

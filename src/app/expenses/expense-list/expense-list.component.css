@@ -240,6 +240,10 @@ mat-spinner{
      .dates-box{
         display: flex;
      }
+     .bill-amount-box{
+        flex-direction: column;
+        gap: 20px;
+     }
      
    }
    
@@ -261,12 +265,11 @@ mat-spinner{
      background-color: #e8d476;
      padding: 12px;
      margin-bottom: 10px;
+     display: flex;
+     justify-content: space-between;
+    align-items: center;
    }
-   .bill-amount-box{
-    background-color: #e8d476;
-    padding: 12px;
-    margin-bottom: 10px;
-  }
+
   .tota-service{
     color: white;
     font-weight: 600;

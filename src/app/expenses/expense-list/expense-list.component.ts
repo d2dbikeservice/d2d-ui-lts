@@ -5,6 +5,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { AddExpenseComponent } from '../add-expense/add-expense.component';
 import { ExpensesService } from '../expense.service';
 import { ToastrService } from 'ngx-toastr';
+import { ExpenseDetailsComponent } from '../expense-details/expense-details.component';
 
 @Component({
   selector: 'app-expense-list',
@@ -113,6 +114,21 @@ export class ExpenseListComponent implements OnInit {
   onYearChange(){
     this.getExpenses()
 
+  }
+
+  openExpenseDialog(){
+    let detailDialog = this.dialog.open(ExpenseDetailsComponent, {
+      panelClass: ['md:w-3/5', 'w-full'],
+      maxHeight: '85vh',
+      data: {
+        type:"detail",
+        data:this.expensesList
+      },
+    });
+
+    // detailDialog.afterClosed().subscribe(item =>{
+      // this.getExpenses()
+    // })
   }
 
 }

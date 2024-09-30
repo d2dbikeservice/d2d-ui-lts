@@ -13,15 +13,15 @@
   >
     <mat-form-field class="task-field">
       <mat-label>Description</mat-label>
-      <input
-        matInput
-        placeholder="Enter Text"
-        id="description"
-        formControlName="description"
-        type="text"
-        name="description"
-      />
+      <mat-select id="status" formControlName="description">
+        <mat-option
+          *ngFor="let statusItem of expenseTypes"
+          [value]="statusItem"
+          >{{ statusItem }}</mat-option
+        >
+      </mat-select>
     </mat-form-field>
+
     <mat-form-field class="task-field">
       <mat-label>Amount</mat-label>
       <input

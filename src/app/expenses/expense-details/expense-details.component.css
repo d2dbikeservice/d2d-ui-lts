@@ -1,0 +1,17 @@
+mat-dialog-content{
+ padding-bottom: 20px !important;
+}
+
+.expense-table-wrapper{
+    background: #dfdce5;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+    font-size: 16px;
+}
+.description{
+    padding: 6px;
+}
+.sub-heading{
+    color: #6330d9;
+}
