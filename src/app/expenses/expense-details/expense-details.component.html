@@ -8,6 +8,6 @@
   <p class="sub-heading">Table shows total expense of each type.</p>
   <div class="expense-table-wrapper" *ngFor="let item of expenseDetailedArray">
     <span class="description">{{ item.description }}</span>
-    <span class="description">{{ item.amount }}</span>
+    <span class="description">Rs. {{ item.amount }}</span>
   </div>
 </mat-dialog-content>

@@ -1,7 +1,11 @@
 <mat-toolbar>
   <ul>
     <li>
-      <a routerLink="/" routerLinkActive="active" ariaCurrentWhenActive="page"
+      <a
+        routerLink="/"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }"
+        ariaCurrentWhenActive="page"
         >Bookings</a
       >
     </li>
