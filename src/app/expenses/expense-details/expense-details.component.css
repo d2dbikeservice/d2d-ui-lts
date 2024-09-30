@@ -15,3 +15,6 @@ mat-dialog-content{
 .sub-heading{
     color: #6330d9;
 }
+.no-data{
+    text-align: center;
+}

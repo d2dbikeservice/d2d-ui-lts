@@ -9,7 +9,7 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
   styleUrl: './add-expense.component.css'
 })
 export class AddExpenseComponent implements OnInit {
-  expenseTypes:any=["Petrol", "Spare parts", "Marketing", "Salary", "Engine Oil", "Other"]
+  expenseTypes:any=["Petrol", "Spare parts", "Marketing", "Salary", "Engine Oil", "Shop & Tools", "Other"]
   expenseForm = new FormGroup({
     description: new FormControl('',Validators.required),
     amount: new FormControl('',Validators.required),

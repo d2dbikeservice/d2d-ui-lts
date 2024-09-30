@@ -5,7 +5,10 @@
 </mat-dialog-actions>
 <h2 mat-dialog-title>Expense Detailed View</h2>
 <mat-dialog-content>
-  <p class="sub-heading">Table shows total expense of each type.</p>
+  <p class="no-data" *ngIf="expenseDetailedArray.length == 0">No Data Found!</p>
+  <p *ngIf="expenseDetailedArray.length > 0" class="sub-heading">
+    Table shows total expense of each type.
+  </p>
   <div class="expense-table-wrapper" *ngFor="let item of expenseDetailedArray">
     <span class="description">{{ item.description }}</span>
     <span class="description">Rs. {{ item.amount }}</span>
