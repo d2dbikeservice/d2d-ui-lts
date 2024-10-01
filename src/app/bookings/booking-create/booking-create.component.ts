@@ -4,6 +4,7 @@ import { MAT_DIALOG_DATA, MatDialogRef } from "@angular/material/dialog";
 import { FormBuilder, FormControl, FormGroup, NgForm, Validators } from "@angular/forms";
 import { DateAdapter } from '@angular/material/core';
 import { AuthService } from "../../auth/auth.service";
+import { ToastrService } from "ngx-toastr";
 
 @Component({
   selector:'app-booking-create',
@@ -20,16 +21,24 @@ export class BookingCreateComponent{
     contact: new FormControl( '',[Validators.required, Validators.pattern('^[0-9]{10,10}$')]),
     serviceScheduledDate: new FormControl('',Validators.required),
   });
+  isDialogAlwaysOepn=false
 
   constructor(private bookingService:BookingsService,private dialogRef: MatDialogRef<BookingCreateComponent>,
     @Inject(MAT_DIALOG_DATA) public data:any,
     public builder:FormBuilder,
+    private toasts:ToastrService,
     private dateAdapter: DateAdapter<Date>, private authService:AuthService ){
         // this.dateAdapter.setLocale('en-GB')
   }
 
   ngOnInit(): void {
 
+  }
+
+  checkedboxChange(event:any){
+    this.isDialogAlwaysOepn = event;
+    console.log('this.isDialogAlwaysOepn', this.isDialogAlwaysOepn);
+    
   }
 
 
@@ -63,9 +72,13 @@ export class BookingCreateComponent{
     }
 
     this.bookingService.addBooking(bookingData).subscribe(res => {
-      this.dialogRef.close();
-      console.log("Booked", res);
-
+      this.toasts.success("Booking Created successfully.")
+      this.taskForm.reset();
+      // console.log("checked", this.taskForm.controls.isDialogAlwaysOepn.value);
+      
+      if(!this.isDialogAlwaysOepn){
+        this.dialogRef.close();
+      }
     })
   }
 

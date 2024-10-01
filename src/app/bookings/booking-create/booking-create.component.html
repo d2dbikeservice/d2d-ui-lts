@@ -2,7 +2,7 @@
   <h2 mat-dialog-title>{{ data.type }} Booking</h2>
   <div>
     <button mat-raised-button mat-dialog-close class="close-btn">Close</button>
-    <button mat-button cdkFocusInitial (click)="resetForm()"  >Clear</button>
+    <button mat-button cdkFocusInitial (click)="resetForm()">Clear</button>
   </div>
 </mat-dialog-actions>
 <mat-dialog-content>
@@ -66,8 +66,22 @@
         name="contact"
         onwheel="this.blur()"
       />
-      <mat-error *ngIf="taskForm.get('contact')?.touched && taskForm.get('contact')?.hasError('required')"> Contact is Required!</mat-error>
-      <mat-error *ngIf="taskForm.get('contact')?.touched && taskForm.get('contact')?.hasError('pattern')"> Contact must be 10 digits.</mat-error>
+      <mat-error
+        *ngIf="
+          taskForm.get('contact')?.touched &&
+          taskForm.get('contact')?.hasError('required')
+        "
+      >
+        Contact is Required!</mat-error
+      >
+      <mat-error
+        *ngIf="
+          taskForm.get('contact')?.touched &&
+          taskForm.get('contact')?.hasError('pattern')
+        "
+      >
+        Contact must be 10 digits.</mat-error
+      >
     </mat-form-field>
     <!-- <mat-form-field class="task-field">
       <mat-label>Booking Date</mat-label>
@@ -79,8 +93,21 @@
 
     <div class="date-wrappar">
       <mat-label class="selectdate-text">Select Booking Date*</mat-label>
-      <input class="booking-date" type="date" id="serviceScheduledDate" name="serviceScheduledDate" formControlName="serviceScheduledDate">
+      <input
+        class="booking-date"
+        type="date"
+        id="serviceScheduledDate"
+        name="serviceScheduledDate"
+        formControlName="serviceScheduledDate"
+      />
     </div>
+    <mat-checkbox
+      class="example-margin"
+      [checked]="isDialogAlwaysOepn"
+      (change)="checkedboxChange($event.checked)"
+      >Keep this form open after success booking.</mat-checkbox
+    >
+
     <button mat-raised-button class="submit-btn">
       {{ data.type == "Add" ? "Book Service" : "Update Service" }}
     </button>

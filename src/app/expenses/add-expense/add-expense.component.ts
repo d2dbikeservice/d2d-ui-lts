@@ -2,6 +2,7 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ExpensesService } from '../expense.service';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-add-expense',
@@ -16,12 +17,12 @@ export class AddExpenseComponent implements OnInit {
     
   });
   rowData:any
+  isDialogAlwaysOepn=false;
   constructor(private expenseService:ExpensesService,
     private dialogRef: MatDialogRef<AddExpenseComponent>,
+    private taostr:ToastrService,
     @Inject(MAT_DIALOG_DATA) public data:any,){
-    this.rowData = this.data;
-    console.log('this.rowData', this.rowData);
-    
+    this.rowData = this.data;    
   }
 
   ngOnInit(): void {
@@ -34,6 +35,10 @@ export class AddExpenseComponent implements OnInit {
       
   }
 
+  checkedboxChange(event:any){
+    this.isDialogAlwaysOepn = event;    
+  }
+
   addExpense(){
     let userData :any = localStorage.getItem('userData')
     const expenseDate = {
@@ -44,7 +49,11 @@ export class AddExpenseComponent implements OnInit {
     }
     if(this.rowData.type == "Add"){
       this.expenseService.addExpense(expenseDate).subscribe(res => {
-        this.dialogRef.close()      
+        this.taostr.success("Expense Added Successfully")
+        this.expenseForm.reset()
+        if(!this.isDialogAlwaysOepn){
+          this.dialogRef.close()      
+        }
       })
 
     }else{

@@ -33,6 +33,12 @@
         name="amount"
       />
     </mat-form-field>
+    <mat-checkbox
+      class="example-margin"
+      [checked]="isDialogAlwaysOepn"
+      (change)="checkedboxChange($event.checked)"
+      >Keep this form open after success Expense</mat-checkbox
+    >
 
     <button mat-raised-button class="submit-btn">
       {{ data.type == "Add" ? "Add Expense" : "Update Expense" }}
